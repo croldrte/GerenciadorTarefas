@@ -17,6 +17,7 @@ switch (opcao)
         GerenciadorTarefas.AdicionarTarefa();
         break;
     case "2":
+        GerenciadorTarefas.ListarTarefas();
         break;
     case "3":
         break;

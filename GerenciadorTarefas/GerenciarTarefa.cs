@@ -12,5 +12,20 @@ namespace GerenciarTarefa
             Tarefa.listaDeTarefas.Add(new Tarefa { Id = Tarefa.listaDeTarefas.Count + 1, Descricao = descricao });
             Formatacao.Cor("Tarefa adicionada com sucesso!", ConsoleColor.Green);
         }
+        public static void ListarTarefas()
+        {
+            if (Tarefa.listaDeTarefas.Count > 0)
+            {
+                Console.WriteLine("Tarefas:");
+                foreach (var tarefa in Tarefa.listaDeTarefas)
+                {
+                    tarefa.ExibirTarefa();
+                }
+            }
+            else
+            {
+                Formatacao.Cor("Nenhuma tarefa adicionada.", ConsoleColor.Red);
+            }
+        }
     }
 }
