@@ -8,5 +8,12 @@ namespace Layout
             Console.WriteLine(mensagem);
             Console.ResetColor();
         }
+        public static void ImprimirCabecalho()
+        {
+            Console.Clear();
+            Cor("╔════════════════════════╗", ConsoleColor.Cyan);
+            Cor("║ GERENCIADOR DE TAREFAS ║", ConsoleColor.Cyan);
+            Cor("╚════════════════════════╝", ConsoleColor.Cyan);
+        }
     }
 }
