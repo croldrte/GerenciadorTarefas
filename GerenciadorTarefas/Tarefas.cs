@@ -1,3 +1,4 @@
+using Layout;
 
 namespace Tarefas
 {
@@ -9,6 +10,10 @@ namespace Tarefas
         {
             Id = id;
             Descricao = descricao;
+        }
+        public void ExibirTarefa()
+        {
+            Formatacao.Cor($"ID: {Id} - {Descricao}", ConsoleColor.Yellow);
         }
     }
 }
