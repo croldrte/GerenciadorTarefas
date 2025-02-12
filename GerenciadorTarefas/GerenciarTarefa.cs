@@ -18,7 +18,7 @@ namespace GerenciarTarefa
                     Formatacao.Cor("Descrição não pode ficar vazia. Tente novamente.", ConsoleColor.Magenta);
                 }
             } while (string.IsNullOrEmpty(descricao));
-            Tarefa.listaDeTarefas.Add(new Tarefa { Id = Tarefa.listaDeTarefas.Count + 1, Descricao = descricao, Status = "[ ]" });
+            Tarefa.listaDeTarefas.Add(new Tarefa { Id = Tarefa.listaDeTarefas.Count + 1, Descricao = descricao, Concluido = false });
             Formatacao.Cor("Tarefa adicionada com sucesso!", ConsoleColor.Green);
             Console.WriteLine();
         }
@@ -51,7 +51,7 @@ namespace GerenciarTarefa
                     Formatacao.Cor("ID não encontrado. Tente novamente.", ConsoleColor.Magenta);
                 }
             } while (id <= 0 || id > Tarefa.listaDeTarefas.Count);
-            Tarefa.listaDeTarefas[id - 1].Status = "[X]";
+            Tarefa.listaDeTarefas[id - 1].Concluido = true;
             Formatacao.Cor("Tarefa concluída!", ConsoleColor.Green);
             Console.WriteLine();
         }
