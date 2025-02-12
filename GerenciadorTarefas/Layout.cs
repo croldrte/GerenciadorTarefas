@@ -13,6 +13,7 @@ namespace Layout
             Cor("╔════════════════════════╗", ConsoleColor.Cyan);
             Cor("║ GERENCIADOR DE TAREFAS ║", ConsoleColor.Cyan);
             Cor("╚════════════════════════╝", ConsoleColor.Cyan);
+            Console.WriteLine();
         }
     }
 }
