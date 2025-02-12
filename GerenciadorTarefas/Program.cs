@@ -23,11 +23,10 @@ switch (opcao)
         GerenciadorTarefas.ConcluirTarefa();
         break;
     case "4":
+        GerenciadorTarefas.RemoverTarefa();
         break;
     case "0":
         Formatacao.Cor("Saindo...", ConsoleColor.Red);
         return;
 }
-Console.WriteLine("Pressione qualquer tecla para continuar...");
-Console.ReadKey();
 goto menu;
