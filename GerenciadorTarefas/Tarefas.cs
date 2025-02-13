@@ -2,15 +2,20 @@ using Layout;
 
 namespace Tarefas
 {
-    class Tarefa
+    public class Tarefa
     {
-        public string Status { get; set; }
+        public bool Concluida { get; set; }
         public int Id { get; set; }
         public string Descricao { get; set; }
-        public static List<Tarefa> listaDeTarefas = new List<Tarefa>();
+        public Tarefa(int id, string descricao)
+        {
+            Id = id;
+            Descricao = descricao;
+            Concluida = false;
+        }
         public void ExibirTarefa()
         {
-            Formatacao.Cor($"{Status} ID: {Id} – {Descricao}", ConsoleColor.Yellow);
+            Formatacao.Cor($"{(Concluida ? "[X]" : "[ ]")} ID: {Id} – {Descricao}", ConsoleColor.Yellow);
         }
     }
 }
