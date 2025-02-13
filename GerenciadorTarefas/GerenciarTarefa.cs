@@ -5,20 +5,19 @@ namespace GerenciarTarefa
 {
     class GerenciadorTarefas
     {
+        public static List<Tarefa> listaDeTarefas = new List<Tarefa>();
         public static void AdicionarTarefa(string descricao)
         {
-            Console.Clear();
-            Tarefa.listaDeTarefas.Add(new Tarefa { Id = Tarefa.listaDeTarefas.Count + 1, Descricao = descricao, Concluido = false });
+            listaDeTarefas.Add(new Tarefa(listaDeTarefas.Count + 1, descricao));
             Formatacao.Cor("Tarefa adicionada com sucesso!", ConsoleColor.Green);
             Console.WriteLine();
         }
         public static void ListarTarefas()
         {
-            Console.Clear();
-            if (Tarefa.listaDeTarefas.Count > 0)
+            if (listaDeTarefas.Count > 0)
             {
                 Formatacao.Cor("Tarefas:", ConsoleColor.Yellow);
-                foreach (var tarefa in Tarefa.listaDeTarefas)
+                foreach (var tarefa in listaDeTarefas)
                     tarefa.ExibirTarefa();
             }
             else
@@ -27,13 +26,13 @@ namespace GerenciarTarefa
         }
         public static void ConcluirTarefa(int id)
         {
-            Tarefa.listaDeTarefas[id - 1].Concluido = true;
+            listaDeTarefas[id - 1].Concluida = true;
             Formatacao.Cor("Tarefa concluída!", ConsoleColor.Green);
             Console.WriteLine();
         }
         public static void RemoverTarefa(int id)
         {
-            Tarefa.listaDeTarefas.RemoveAt(id - 1);
+            listaDeTarefas.RemoveAt(id - 1);
             Formatacao.Cor("Tarefa removida com sucesso!", ConsoleColor.Red);
             Console.WriteLine();
         }

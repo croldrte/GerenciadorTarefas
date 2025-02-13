@@ -1,5 +1,4 @@
 ﻿using Layout;
-using Tarefas;
 using GerenciarTarefa;
 
 bool entradaValida;
@@ -7,7 +6,6 @@ string opcao, descricao;
 int id;
 
 Console.Clear();
-
 while (true)
 {
     Formatacao.ImprimirCabecalho();
@@ -24,6 +22,7 @@ while (true)
         {
             case "1":
                 entradaValida = true;
+                Console.Clear();
                 do
                 {
                     Console.Write("Digite a descrição da tarefa: ");
@@ -35,28 +34,31 @@ while (true)
                 break;
             case "2":
                 entradaValida = true;
+                Console.Clear();
                 GerenciadorTarefas.ListarTarefas();
                 break;
             case "3":
                 entradaValida = true;
+                Console.Clear();
                 GerenciadorTarefas.ListarTarefas();
                 do
                 {
                     Console.Write("Digite o ID da tarefa a concluir: ");
-                    if (!int.TryParse(Console.ReadLine(), out id) || id <= 0 || id > Tarefa.listaDeTarefas.Count)
+                    if (!int.TryParse(Console.ReadLine(), out id) || id <= 0 || id > GerenciadorTarefas.listaDeTarefas.Count)
                         Formatacao.Cor("ID não encontrado. Tente novamente.", ConsoleColor.Magenta);
-                } while (id <= 0 || id > Tarefa.listaDeTarefas.Count);
+                } while (id <= 0 || id > GerenciadorTarefas.listaDeTarefas.Count);
                 GerenciadorTarefas.ConcluirTarefa(id);
                 break;
             case "4":
                 entradaValida = true;
+                Console.Clear();
                 GerenciadorTarefas.ListarTarefas();
                 do
                 {
                     Console.Write("Digite o ID da tarefa a remover: ");
-                    if (!int.TryParse(Console.ReadLine(), out id) || id <= 0 || id > Tarefa.listaDeTarefas.Count)
+                    if (!int.TryParse(Console.ReadLine(), out id) || id <= 0 || id > GerenciadorTarefas.listaDeTarefas.Count)
                         Formatacao.Cor("ID não encontrado. Tente novamente.", ConsoleColor.Magenta);
-                } while (id <= 0 || id > Tarefa.listaDeTarefas.Count);
+                } while (id <= 0 || id > GerenciadorTarefas.listaDeTarefas.Count);
                 GerenciadorTarefas.RemoverTarefa(id);
                 break;
             case "0":
