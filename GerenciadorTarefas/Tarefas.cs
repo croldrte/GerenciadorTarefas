@@ -2,7 +2,7 @@ using Layout;
 
 namespace Tarefas
 {
-    class Tarefa
+    public class Tarefa
     {
         public bool Concluido { get; set; }
         public int Id { get; set; }
