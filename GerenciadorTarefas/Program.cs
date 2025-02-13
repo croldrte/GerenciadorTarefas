@@ -41,26 +41,42 @@ while (true)
         case 3:
             Console.Clear();
             GerenciadorTarefas.ListarTarefas();
-            while (true)
+            if (GerenciadorTarefas.listaDeTarefas.Count != 0)
             {
-                Console.Write("Digite o ID da tarefa a concluir: ");
-                if (int.TryParse(Console.ReadLine(), out id) && id > 0 && id <= GerenciadorTarefas.listaDeTarefas.Count)
-                    break;
-                Formatacao.Cor("ID não encontrado. Tente novamente.", ConsoleColor.Magenta);
+                while (true)
+                {
+                    Console.Write("Digite o ID da tarefa a concluir: ");
+                    if (int.TryParse(Console.ReadLine(), out id) && id > 0 && id <= GerenciadorTarefas.listaDeTarefas.Count)
+                        break;
+                    Formatacao.Cor("ID não encontrado. Tente novamente.", ConsoleColor.Magenta);
+                }
+                GerenciadorTarefas.ConcluirTarefa(id);
             }
-            GerenciadorTarefas.ConcluirTarefa(id);
+            else
+            {
+                Formatacao.Cor("Adicione tarefas antes de tentar conclui-las.", ConsoleColor.Magenta);
+                Console.WriteLine();
+            }
             break;
         case 4:
             Console.Clear();
             GerenciadorTarefas.ListarTarefas();
-            while (true)
+            if (GerenciadorTarefas.listaDeTarefas.Count != 0)
             {
-                Console.Write("Digite o ID da tarefa a remover: ");
-                if (int.TryParse(Console.ReadLine(), out id) && id > 0 && id <= GerenciadorTarefas.listaDeTarefas.Count)
-                    break;
-                Formatacao.Cor("ID não encontrado. Tente novamente.", ConsoleColor.Magenta);
+                while (true)
+                {
+                    Console.Write("Digite o ID da tarefa a remover: ");
+                    if (int.TryParse(Console.ReadLine(), out id) && id > 0 && id <= GerenciadorTarefas.listaDeTarefas.Count)
+                        break;
+                    Formatacao.Cor("ID não encontrado. Tente novamente.", ConsoleColor.Magenta);
+                }
+                GerenciadorTarefas.RemoverTarefa(id);
             }
-            GerenciadorTarefas.RemoverTarefa(id);
+            else
+            {
+                Formatacao.Cor("Adicione tarefas antes de tentar removê-las.", ConsoleColor.Magenta);
+                Console.WriteLine();
+            }
             break;
         case 0:
             Console.WriteLine();
