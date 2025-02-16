@@ -1,4 +1,5 @@
 using Layout;
+using GerenciarTarefa;
 
 namespace Tarefas
 {
@@ -7,11 +8,11 @@ namespace Tarefas
         public bool Concluida { get; set; }
         public int Id { get; set; }
         public string Descricao { get; set; }
-        public Tarefa(int id, string descricao)
+        public Tarefa(string descricao)
         {
-            Id = id;
-            Descricao = descricao;
             Concluida = false;
+            Id = GerenciadorTarefas.listaDeTarefas.Count + 1;
+            Descricao = descricao;            
         }
         public void ExibirTarefa()
         {
