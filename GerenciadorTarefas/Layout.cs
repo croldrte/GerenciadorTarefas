@@ -10,9 +10,9 @@ namespace Layout
         }
         public static void ImprimirCabecalho()
         {
-            Cor("╔════════════════════════╗", ConsoleColor.Cyan);
-            Cor("║ GERENCIADOR DE TAREFAS ║", ConsoleColor.Cyan);
-            Cor("╚════════════════════════╝", ConsoleColor.Cyan);
+            Console.WriteLine(new string(' ', (Console.WindowWidth - 26) / 2) + "╔════════════════════════╗");
+            Console.WriteLine(new string(' ', (Console.WindowWidth - 26) / 2) + "║ GERENCIADOR DE TAREFAS ║");
+            Console.WriteLine(new string(' ', (Console.WindowWidth - 26) / 2) + "╚════════════════════════╝");
             Console.WriteLine();
         }
     }
