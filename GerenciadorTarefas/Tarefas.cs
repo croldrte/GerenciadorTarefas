@@ -5,13 +5,14 @@ namespace Tarefas
 {
     public class Tarefa
     {
+        private static int proximoId = 1;
         public bool Concluida { get; set; }
         public int Id { get; set; }
         public string Descricao { get; set; }
         public Tarefa(string descricao)
         {
             Concluida = false;
-            Id = GerenciadorTarefas.listaDeTarefas.Count + 1;
+            Id = proximoId++;
             Descricao = descricao;            
         }
         public void ExibirTarefa()

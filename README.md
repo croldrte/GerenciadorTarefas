@@ -11,43 +11,43 @@ Projeto desenvolvido durante as aulas do curso técnico em Informática para Int
 
 ## Funcionalidades
 
-- **Adicionar Tarefa**
-- **Listar Tarefas**
-- **Concluir Tarefa**
-- **Remover Tarefa**
+- **Adicionar Tarefa**: Permite ao usuário inserir a descrição de uma nova tarefa.
+- **Listar Tarefas**: Exibe todas as tarefas registradas, com seu ID, descrição e status (concluída ou pendente).
+- **Concluir Tarefa**: Marca uma tarefa como concluída, baseado no ID informado pelo usuário.
+- **Remover Tarefa**: Remove uma tarefa da lista, com base no ID informado.
 
 ## Estrutura
 
 O código está organizado em quatro arquivos principais, que são responsáveis por diferentes partes do sistema:
 
-- **Layout.cs**
-Contém a classe `Formatacao`, que é responsável por exibir mensagens no console com cores e formato especial.  A classe oferece dois métodos principais: `Cor`, que exibe a mensagem passada com a cor especificada; e `ImprimirCabecalho`, que exibe um cabeçalho formatado no console com o nome do sistema.
+- **Layout.cs**: Contém a classe `Formatacao` com métodos para formatar a saída no console, como mudar a cor do texto e imprimir o cabeçalho.
 
-- **Tarefas.cs**
-Define a classe `Tarefa`, que representa uma tarefa no sistema. Cada tarefa tem as seguintes propriedades: `Concluida`, um valor booleano que indica se a tarefa foi concluída ou não; `Id`, que armazena o identificador único da tarefa; e `Descricao`, que contém a descrição da tarefa. Além disso, a classe possui o método `ExibirTarefa`, que exibe a tarefa no console, mostrando seu ID, descrição e se foi concluída.
+- **Tarefas.cs**: Contém a classe `Tarefa` que representa uma tarefa com ID, descrição e status de conclusão.
 
-- **GerenciarTarefa.cs**
-Contém a classe `GerenciadorTarefas`, responsável pelo gerenciamento das tarefas. Ela possui os métodos principais do programa, usados para adicionar, listar, concluir e remover tarefas da lista de tarefas: `AdicionarTarefa` cria uma nova tarefa e a adiciona à lista; `ListarTarefas` exibe todas as tarefas presentes na lista; `ConcluirTarefa` marca uma tarefa como concluída com base no seu ID; e `RemoverTarefa` permite remover uma tarefa da lista também com base no seu ID.
+- **GerenciarTarefa.cs**: Contém a classe `GerenciadorTarefas` que gerencia a lista de tarefas e fornece métodos para adicionar, listar, concluir e remover tarefas.
 
-- **Program.cs**
-Contém o loop principal que exibe o menu de opções para o usuário e interage com o sistema de gerenciamento de tarefas.
+- **Program.cs**: Contém o código principal que implementa a interface do usuário e interage com o `GerenciadorTarefas`.
+
+## Exemplo de uso
+
+![Exemplo de uso do gerenciador de tarefas.](/img/Exemplo.gif)
 
 ## Como executar
 
-**Pré-requisito:** 
-- Ter o .NET SDK 9.0.2 ou superior instalado na máquina.
+**1. Pré-requisitos:** 
+- [.NET SDK](https://dotnet.microsoft.com/download) 9.0 ou superior instalado na máquina.
 
-**1. Clone este repositório:**
+**2. Clone este repositório:**
 ```
 git clone https://github.com/croldrte/GerenciadorTarefas.git
 ```
 
-**2. Acesse a pasta do projeto:**
+**3. Acesse a pasta do projeto:**
 ```
 cd GerenciadorTarefas
 ```
 
-**3. Compile e execute o programa:**
+**4. Compile e execute o programa:**
 ```
 dotnet run
 ```
