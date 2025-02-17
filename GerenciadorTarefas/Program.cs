@@ -46,12 +46,12 @@ while (true)
         case 3:
             Console.Clear();
             GerenciadorTarefas.ListarTarefas();
-            if (GerenciadorTarefas.listaDeTarefas.Count != 0)
+            if (GerenciadorTarefas.listaDeTarefas.Any())
             {
                 while (true)
                 {
                     Console.Write("Digite o ID da tarefa a concluir: ");
-                    if (int.TryParse(Console.ReadLine(), out id) && id > 0 && id <= GerenciadorTarefas.listaDeTarefas.Count)
+                    if (int.TryParse(Console.ReadLine(), out id) && id > 0 && id <= GerenciadorTarefas.listaDeTarefas.LastOrDefault().Id)
                     {
                         GerenciadorTarefas.ConcluirTarefa(id);
                         break;
@@ -69,12 +69,12 @@ while (true)
         case 4:
             Console.Clear();
             GerenciadorTarefas.ListarTarefas();
-            if (GerenciadorTarefas.listaDeTarefas.Count != 0)
+            if (GerenciadorTarefas.listaDeTarefas.Any())
             {
                 while (true)
                 {
                     Console.Write("Digite o ID da tarefa a remover: ");
-                    if (int.TryParse(Console.ReadLine(), out id) && id > 0 && id <= GerenciadorTarefas.listaDeTarefas.Count)
+                    if (int.TryParse(Console.ReadLine(), out id) && id > 0 && id <= GerenciadorTarefas.listaDeTarefas.LastOrDefault().Id)
                     {
                         GerenciadorTarefas.RemoverTarefa(id);
                         break;

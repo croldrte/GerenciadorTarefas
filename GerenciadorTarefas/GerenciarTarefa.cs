@@ -14,7 +14,7 @@ namespace GerenciarTarefa
         }
         public static void ListarTarefas()
         {
-            if (listaDeTarefas.Count > 0)
+            if (listaDeTarefas.Any())
             {
                 Console.WriteLine("Tarefas:");
                 foreach (var tarefa in listaDeTarefas)
@@ -28,14 +28,30 @@ namespace GerenciarTarefa
         }
         public static void ConcluirTarefa(int id)
         {
-            listaDeTarefas[id - 1].Concluida = true;
-            Formatacao.Cor("Tarefa concluída!", ConsoleColor.Green);
+            var tarefa = listaDeTarefas.Find(t => t.Id == id);
+            if (tarefa != null)
+            {
+                tarefa.Concluida = true;
+                Formatacao.Cor("Tarefa concluída!", ConsoleColor.Green);
+            }
+            else
+            {
+                Formatacao.Cor("ID não encontrado. Tente novamente.", ConsoleColor.Magenta);
+            }
             Console.WriteLine();
         }
         public static void RemoverTarefa(int id)
         {
-            listaDeTarefas.RemoveAt(id - 1);
-            Formatacao.Cor("Tarefa removida com sucesso!", ConsoleColor.Red);
+            var tarefa = listaDeTarefas.Find(t => t.Id == id);
+            if (tarefa != null)
+            {
+                listaDeTarefas.Remove(tarefa);
+                Formatacao.Cor("Tarefa removida com sucesso!", ConsoleColor.Red);
+            }
+            else
+            {
+                Formatacao.Cor("ID não encontrado. Tente novamente.", ConsoleColor.Magenta);
+            }
             Console.WriteLine();
         }
     }
